@@ -1,0 +1,4 @@
+#Para arquivos colocar 'nome' (exemplo.txt), para pastas 'nome' + '/' (node_modules/), para tipos de arquivo '.tipo' (.exe)
+
+# Ignorar a pasta de dependências do Node.js
+node_modules/
