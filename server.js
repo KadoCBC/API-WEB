@@ -20,16 +20,20 @@ app.post('/usuario', (req,res) => {
     Usuarios.create({
         nickname: req.body.nickname,
         password: req.body.password
-    }).then( () => {
-        res.status(200);
+    }).then( (usuario) => {
+        res.send("Usuario cadastrado"+ usuario);
     }).catch( (error) => {
         res.send("erro ao cadastrar usuario" + error);
     });
 });
 
 
-app.get('/usuarios', (req, res) => {
-    
+app.get('/usuarios', (req,res) => {
+    Usuarios.findAll().then( (usuarios) => {
+        res.send({usuarios: usuarios})
+    }).catch((erro) => {
+        res.send("Erro ao buscar os dados" + erro);
+    })
 });
 
 
