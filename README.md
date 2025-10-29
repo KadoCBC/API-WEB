@@ -1,10 +1,10 @@
 GUIA DE DENSENVOLVIMENTO DO PROJETO PESSOAL COM NOME: 
 
--> PRIMEIRA ETAPA - instalando frameworks
+-> 1 ETAPA - instalando frameworks
 1. iniciar projeto NODE.JS no terminal |  npm init -y
 2. inciar a biblioteca express no server | npm i express
 
--> SEGUNDA ETAPA - versionamento do codigo
+-> 2 ETAPA - versionamento do codigo
 1. criar arquivo gitignore | criar arquivo .gitignore
 2. iniciar projeto no git | git init
 3. add arquivos para stage area| git add .
@@ -28,7 +28,11 @@ GUIA DE DENSENVOLVIMENTO DO PROJETO PESSOAL COM NOME:
 4. No arquivo db.js | inserir codigo
 5. No arquivo Usuario.js | inserir codigo de criação de uma table
 
-->ETAPA EXTRA - arquvo .env
+-> ETAPA EXTRA - arquivo .env
 1. instalar biblioteca dotenv | npm install dotenv
 2. criar variaveis que queira ocultar | no .env
 3. lembrar de add .env no gitignore
+
+-> 6 ETAPA - Criando as requisições
+1. Criar codigo da requisições de CRUD | codigo no server.js
+2. Testar requisições no Postman

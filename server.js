@@ -15,7 +15,7 @@ app.use(express.json());
 
 
 
-//Rota usuarios
+//POST USUARIOS
 app.post('/usuario', (req,res) => {
     Usuarios.create({
         nickname: req.body.nickname,
@@ -27,14 +27,49 @@ app.post('/usuario', (req,res) => {
     });
 });
 
-
+//GET ALL USUARIOS
 app.get('/usuarios', (req,res) => {
     Usuarios.findAll().then( (usuarios) => {
-        res.send({usuarios: usuarios})
+        res.send({usuarios: usuarios});
     }).catch((erro) => {
         res.send("Erro ao buscar os dados" + erro);
     })
 });
 
+//GET by ID USUARIOS
+app.get('/usuario/:id', (req,res) => {
+    Usuarios.findByPk(req.params.id).then( (usuario) => {
+        res.send({usuario});
+    }).catch((erro) => {
+        res.send("Erro ao buscar o dado" + erro);
+    })
+});
+
+// PATCH by ID USUARIOS
+app.patch('/usuario/:id', (req,res) => {
+    Usuarios.update(
+        { age: req.body.age },
+        {
+            where: { id: req.params.id }
+        }
+    ).then( (usuario) => {
+        res.send({usuario: usuario}); // Está atualizando certo, porém a resposta do res.send não esta sendo a ideal -> investigar
+    }).catch((erro) => {
+        res.send("Erro ao atualizar o usuario" + erro)
+    }) 
+});
+
+// DELETE by ID USUARIOS
+app.delete('/usuario/:id', (req,res) => {
+    Usuarios.destroy(
+        {
+            where: { id: req.params.id }
+        }
+    ).then( (usuario) => {
+        res.send({usuario: usuario});
+    }).catch((erro) => {
+        res.send("Erro ao deletar o usuario" + erro)
+    }) 
+});
 
 app.listen(port);
